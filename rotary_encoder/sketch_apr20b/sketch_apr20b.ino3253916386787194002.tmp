@@ -1,0 +1,21 @@
+int A = A1;
+int B = A2;
+int counter = 0;
+int state = 0;
+int previousState = 0;
+
+void setup() {
+  pinMode(A, INPUT);
+  pinMode(B, INPUT);
+  Serial.begin(9600);
+  previousState = analogRead(A1);
+}
+
+void loop() {
+  state = analogRead(A1);
+  if (state != previousState) {
+    counter++;
+  }
+  Serial.writeln(counter);
+  previousState = state;
+}
